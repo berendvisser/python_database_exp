@@ -1,22 +1,15 @@
+
+import time
+import db_wrapper
 import mysql.connector
-
-mydb = mysql.connector.connect(
-    host="localhost",
-    user="newuser",
-    passwd="password",
-    database="pythontest"
-    )
-
-mycursor = mydb.cursor()
-
-
-#mycursor.execute("SELECT * FROM tables")
-
-
-#myresult = mycursor.fetchall()
-
-
+while(1):
+    db_wrapper.set_channels_dynamic(int(time.time()*1000),255,100)
     
-mycursor.execute("UPDATE dmx SET `1.00` = '255' WHERE CHANNEL = 2")
-mydb.commit()
-print(mycursor.rowcount, "record inserted.")
+
+
+# for i in range(1,513):
+#     db_wrapper.set_channel_static(i,0)
+
+# for i in range(1,513):
+#     db_wrapper.add_column("%s"%(str(i)))
+
